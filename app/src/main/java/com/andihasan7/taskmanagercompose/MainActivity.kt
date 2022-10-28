@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background) {
-                    ImageTask(title = getString(R.string.title), subTitle = getString(R.string.sub_title))
+                    TaskCompletedScreen()
                 }
             }
         }
@@ -34,8 +36,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ImageTask(title: String, subTitle: String) {
-    val image = painterResource(id = R.drawable.ic_task_completed)
+fun TaskCompletedScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -43,40 +44,36 @@ fun ImageTask(title: String, subTitle: String) {
             verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val image = painterResource(id = R.drawable.ic_task_completed)
+        
         Image(painter = image, contentDescription = null,
             modifier = Modifier
                 .height(200.dp)
                 .width(200.dp)
         )
-        TitleText(title = title, subTitle = subTitle)
-    }
-
-}
-
-@Composable
-fun TitleText(title: String, subTitle: String) {
-    Column() {
-        Text(text = title,
-            fontSize = 24.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(Alignment.CenterHorizontally)
-                .padding(top = 24.dp, bottom = 8.dp)
+        
+        Text(
+            text = stringResource(R.string.all_task_completed),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+        
         )
         
-        Text(text = subTitle,
-            fontSize = 16.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(Alignment.CenterHorizontally)
+        Text(
+            text = stringResource(R.string.nice_work),
+            fontSize = 16.sp
         )
     }
+
 }
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TaskManagerPreview() {
     TaskManagerComposeTheme {
-        ImageTask(title = "hello", subTitle = "kotlin")
+        Surface {
+            TaskCompletedScreen()
+        }
     }
 }

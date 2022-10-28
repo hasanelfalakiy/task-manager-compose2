@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Task Manager Compose</string>
-    <string name="title">All Tasks Completed</string>
-    <string name="sub_title">Nice work!</string>
+    <string name="all_task_completed">All Tasks Completed</string>
+    <string name="nice_work">Nice work!</string>
 </resources>
