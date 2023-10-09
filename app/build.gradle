@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.andihasan7.taskmanagercompose'
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.andihasan7.taskmanagercompose"
-        minSdk 21
-        targetSdk 32
+        minSdk 26
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

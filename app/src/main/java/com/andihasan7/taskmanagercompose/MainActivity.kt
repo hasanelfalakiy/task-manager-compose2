@@ -41,16 +41,17 @@ fun TaskCompletedScreen() {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(),
-            verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val image = painterResource(id = R.drawable.ic_task_completed)
+        val image = painterResource(R.drawable.ic_task_completed)
         
-        Image(painter = image, contentDescription = null,
+        Image(
+            painter = image,
+            contentDescription = null,
             modifier = Modifier
-                .height(200.dp)
                 .width(200.dp)
-        )
+                .height(200.dp)) // custom width & height
         
         Text(
             text = stringResource(R.string.all_task_completed),
